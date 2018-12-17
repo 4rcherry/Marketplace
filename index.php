@@ -362,7 +362,15 @@
                         <a href="javascript:void(0);" class="dropdown-toggle dropdown-hover" data-toggle="dropdown">
                             <span class="meta">
                                 <span class="avatar"><img src="<?php echo $host?>/asset/image/avatar/avatar7.jpg" class="img-circle" alt="" /></span>
-                                <span class="text hidden-xs hidden-sm pl5">Erich Reyes</span>
+                                <span class="text hidden-xs hidden-sm pl5">
+                                    <?php
+                                        if (empty($_SESSION['email'])) {
+                                            echo "Anonymouse";
+                                        } else { 
+                                            echo $_SESSION['email']; 
+                                        }
+                                    ?>
+                                </span>
                                 <span class="caret"></span>
                             </span>
                         </a>
@@ -387,7 +395,8 @@
                             <li><a href="javascript:void(0);"><span class="icon"><i class="ico-cog4"></i></span> Profile Setting</a></li>
                             <li><a href="javascript:void(0);"><span class="icon"><i class="ico-question"></i></span> Help</a></li>
                             <li class="divider"></li>
-                            <li><a href="javascript:void(0);"><span class="icon"><i class="ico-exit"></i></span> Sign Out</a></li>
+                            <li><a href="<?php echo $host?>/?page=sign-in"><span class="icon"><i class="ico-exit"></i></span> Sign in</a></li>
+                            <li><a href="<?php echo $host?>/?page=sign-out"><span class="icon"><i class="ico-exit"></i></span> Sign Out</a></li>
                         </ul>
                     </li>
                     <!-- Profile dropdown -->
@@ -870,11 +879,6 @@
     <section id="main" role="main">
         <div class="container-fluid">
 <?php
-    if(empty($_SESSION['name'])) {
-        echo "Anda belum Login";
-    } else {
-        echo "Anda sedang login";
-    }
 
     if(isset($_GET['page'])) {
         if($_GET['page'] == "dashboard") {
