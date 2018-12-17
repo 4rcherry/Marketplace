@@ -97,7 +97,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <button class="btn btn-primary"><i class="ico-cart4"></i> Add to cart</button>
+                                    <button class="btn btn-primary"><i class="ico-cart4"></i> <a href="?page=shopping-cart"> Add to cart</a></button>
                                 
                                 </div>                              
                             </form>
